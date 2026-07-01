@@ -3,129 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DTS Digital Security & Privacy Advisors</title>
-    <!-- Pico.css for elegant, minimal, and responsive styling -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <title>Data Protection & Security Services</title>
     <style>
         :root {
-            --primary: #008080; /* Clean, professional teal accent */
+            --bg-main: #0a0f1d;
+            --bg-card: #111827;
+            --bg-card-hover: #1f2937;
+            --text-main: #f9fafb;
+            --text-muted: #9ca3af;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.15);
+            --accent-green: #10b981;
+            --border: #374151;
+            --font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            padding: 2rem 0;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: var(--font);
+            line-height: 1.6;
+            padding: 4rem 2rem;
         }
-        .hero {
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
             text-align: center;
-            padding: 3rem 0;
-            border-bottom: 1px solid var(--muted-border-color);
-            margin-bottom: 3rem;
+            margin-bottom: 5rem;
         }
-        .service-card {
-            border: 1px solid var(--muted-border-color);
-            padding: 1.5rem;
-            border-radius: 8px;
-            background-color: var(--card-background-color);
+
+        header h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #ffffff, #9ca3af);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .cta-box {
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 6rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+        }
+
+        .section-title span {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background-color: var(--accent-glow);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .section-title.modular span {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: var(--accent-green);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        /* Grid Layouts */
+        .flagship-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+        }
+
+        .modular-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Cards styling */
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            background-color: var(--bg-card-hover);
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 12px 24px -10px var(--accent-glow);
+        }
+
+        .modular .card:hover {
+            border-color: var(--accent-green);
+            box-shadow: 0 12px 24px -10px rgba(16, 185, 129, 0.1);
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 1.25rem;
+        }
+
+        .modular .tagline {
+            color: var(--accent-green);
+        }
+
+        .description {
+            color: var(--text-muted);
+            font-size: 0.975rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
             text-align: center;
-            margin-top: 3rem;
-            padding: 2rem;
-            background-color: var(--card-background-color);
-            border-radius: 8px;
+            text-decoration: none;
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .card:hover .cta-btn {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: #ffffff;
+        }
+
+        .modular .card:hover .cta-btn {
+            background-color: var(--accent-green);
+            border-color: var(--accent-green);
+            color: #ffffff;
+        }
+
+        /* Responsive Tweaks */
+        @media (max-width: 768px) {
+            body { padding: 2rem 1rem; }
+            header h1 { font-size: 2rem; }
+            .flagship-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <main class="container">
-        <!-- Hero Section -->
-        <header class="hero">
-            <h1>DTS Digital Security</h1>
-            <p><strong>Privacy & Identity Protection Advisors</strong></p>
-            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto; color: var(--muted-color);">
-                Securing your passwords, locking down your digital identity, and protecting your family from cyber threats. 100% remote, stress-free, and tailored for your home.
-            </p>
-            <br>
-            <a href="#contact" class="button">Protect Your Digital Life</a>
+    <div class="container">
+        <header>
+            <h1>Data Protection & Security Services</h1>
+            <p>Enterprise-grade security and proactive resilience frameworks tailored perfectly for modern small businesses and professionals.</p>
         </header>
 
-        <!-- The Problem Section -->
-        <section id="why-us">
-            <h2 style="text-align: center;">The Reality of Modern Digital Life</h2>
-            <div class="grid">
-                <div>
-                    <h5>The Password Trap</h5>
-                    <p>Using the same 3 passwords for everything? If just one app you use gets breached, hackers instantly have the keys to your entire life.</p>
+        <!-- Flagship Frameworks -->
+        <section class="flagship">
+            <h2 class="section-title">Core Flagship Frameworks <span>Fully Managed Tiers</span></h2>
+            <div class="flagship-grid">
+                
+                <div class="card">
+                    <div>
+                        <h3>Ransomware Resilience & Bulletproof Backup Management</h3>
+                        <p class="tagline">Never pay a ransom. Never lose a file.</p>
+                        <p class="description">We protect your business records using a strict, automated 3-2-1 backup strategy. By deploying intelligent backup engines to your workstations and servers, we route your data to a secure, off-site cloud vault. Because we enforce strict data immutability, your backups are locked against modification. Even if ransomware gets your administrative passwords, it is physically impossible for malware to delete or alter your backup copies, guaranteeing a swift, clean recovery.</p>
+                    </div>
+                    <a href="#contact" class="cta-btn">Book a Consultation</a>
                 </div>
-                <div>
-                    <h5>The Hidden Exposure</h5>
-                    <p>Your phone number, home address, and old leaked credentials are actively floating on the dark web, waiting to be exploited for identity theft.</p>
+
+                <div class="card">
+                    <div>
+                        <h3>Managed Endpoint Detection & Response (EDR)</h3>
+                        <p class="tagline">Proactive, behavioral threat defense watching your network 24/7.</p>
+                        <p class="description">Standard antivirus only acts after a system is already infected. Our managed EDR utilizes behavioral AI to watch your endpoints in real-time. If an employee accidentally opens a malicious link, our system catches the strange behavior mid-execution, halts the attack, and instantly isolates the affected machine from your local office Wi-Fi to stop the threat from spreading. We act as your virtual security squad, keeping your business running smoothly.</p>
+                    </div>
+                    <a href="#contact" class="cta-btn">Book a Consultation</a>
                 </div>
-                <div>
-                    <h5>The Jargon Overwhelm</h5>
-                    <p>You know you need to be safer, but setting up multi-factor authentication, security keys, and vaults feels completely overwhelming. Let a pro do the heavy lifting.</p>
-                </div>
+
             </div>
         </section>
 
-        <hr>
+        <!-- Modular Add-Ons -->
+        <section class="modular">
+            <h2 class="section-title modular">Targeted Modular Add-Ons <span>Budget-Friendly Microservices</span></h2>
+            <div class="modular-grid">
 
-        <!-- Flagship Service Section -->
-        <section id="services">
-            <h2 style="text-align: center;">Flagship Service Package</h2>
-            <div class="service-card">
-                <h3>The Identity & Account Lockdown</h3>
-                <p>A comprehensive, 1-on-1 remote implementation session where we transform your personal security from vulnerable to an ironclad digital fortress.</p>
+                <div class="card">
+                    <div>
+                        <h3>Cloud-Only Mail & Drive Backup</h3>
+                        <p class="tagline">Protect your inbox and shared files from accidental deletion.</p>
+                        <p class="description">Think Microsoft 365 or Google Workspace automatically backs up your data forever? Think again. Standard cloud accounts permanently purge deleted emails and folders after 30 days. This lightweight, budget-friendly service running in the background takes continuous, secure snapshots of your entire corporate cloud workspace, ensuring your communication history is completely safe.</p>
+                    </div>
+                    <a href="#contact" class="cta-btn">Get Started</a>
+                </div>
 
-                <ul>
-                    <li><strong>The Breach & Exposure Audit:</strong> We track down exactly where your personal data has been leaked across the web and identify active vulnerabilities.</li>
-                    <li><strong>Password Manager Deployment:</strong> We set up a secure, encrypted personal vault (Bitwarden) on your devices so you never have to remember or type a password again.</li>
-                    <li><strong>"Crown Jewel" Account Hardening:</strong> We lock down your primary email, banking apps, and major social platforms with advanced, non-SMS Multi-Factor Authentication (MFA).</li>
-                    <li><strong>The Emergency Hand-Off Kit:</strong> You receive a physical, secure backup framework for your master credentials to ensure your family always has access if an emergency happens.</li>
-                </ul>
-                <p><strong>Investment:</strong> Flat-rate project pricing. No ongoing monthly fees for tech you don't use.</p>
+                <div class="card">
+                    <div>
+                        <h3>Automated Device Patching & Update Maintenance</h3>
+                        <p class="tagline">Close the security gaps that hackers exploit most.</p>
+                        <p class="description">Over 80% of successful cyberattacks target unpatched software like outdated browsers, Zoom clients, and Windows files. We take the hassle of manual updates completely off your hands. Using our remote management tools, we quietly schedule, test, and push critical security patches to your team's laptops after hours, ensuring your business stays defended against modern security flaws without disrupting your workday.</p>
+                    </div>
+                    <a href="#contact" class="cta-btn">Get Started</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Secure Wi-Fi & Guest Network Isolation</h3>
+                        <p class="tagline">Keep your customers connected and your business data invisible.</p>
+                        <p class="description">Sharing your main office Wi-Fi password with visitors or plugging smart TVs into the same network as your accounting system leaves your business wide open. This fast, one-time setup project structurally separates your internet into dedicated, secure lanes. Visitors get blazing-fast guest Wi-Fi, smart gadgets stay online, and your critical business computers stay hidden behind a digital wall.</p>
+                    </div>
+                    <a href="#contact" class="cta-btn">Get Started</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Executive Digital Footprint Audit</h3>
+                        <p class="tagline">See what hackers, scammers, and the public can find out about you.</p>
+                        <p class="description">Your home address, cell phone number, family members’ names, and exposed passwords from historical data breaches are likely sitting on public search directories right now. This flat-rate intelligence service uses advanced investigative tools to map your exposed digital footprint. We deliver a comprehensive, confidential risk assessment report along with a step-by-step blueprint to take back your privacy.</p>
+                    </div>
+                    <a href="#contact" class="cta-btn">Get Started</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Proactive Data Migration & Storage Health Check</h3>
+                        <p class="tagline">Move your critical data safely before an old drive fails.</p>
+                        <p class="description">Don't wait for an old laptop or external hard drive to crash before protecting your files. This preventative service runs diagnostic checks to measure the physical health of your storage drive. We then use enterprise-grade hardware to safely migrate your entire user profile, photos, and critical database archives to a secure, modern, encrypted drive with zero risk of file corruption.</p>
+                    </div>
+                    <a href="#contact" class="cta-btn">Get Started</a>
+                </div>
+
             </div>
         </section>
-
-        <hr>
-
-        <!-- About / Credentials Section -->
-        <section id="about">
-            <div class="grid">
-                <div>
-                    <h2>Why Work With Me?</h2>
-                    <p>
-                        I am a dedicated IT and cybersecurity professional specializing in consumer privacy protection. Having spent years running a hands-on computer repair and IT solutions business, I know exactly how real-world threats target everyday users.
-                    </p>
-                    <p>
-                        I bridge the gap between heavy technical engineering and clear, practical household peace of mind. I don't use confusing jargon—I deliver solid, verified security.
-                    </p>
-                </div>
-                <div>
-                    <h3>Verified Technical Expertise</h3>
-                    <ul>
-                        <li>Professional Cybersecurity & IT Support Credentials</li>
-                        <li>Years of Professional IT Infrastructure Management</li>
-                        <li>Dedicated to Privacy-First, Open-Source Security Ecosystems</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact / Call to Action Section -->
-        <section id="contact" class="cta-box">
-            <h2>Ready to Secure Your Household?</h2>
-            <p>Stop putting it off until after a data breach happens. Let's fix it this week.</p>
-            <!-- REPLACE THE LINK BELOW WITH YOUR CALENDLY OR MAILTO LINK -->
-            <a href="mailto:your-email@example.com?subject=Digital%20Security%20Consultation" role="button">Schedule Your Remote Consultation</a>
-            <p style="font-size: 0.9rem; margin-top: 1rem; color: var(--muted-color);">Have questions first? Feel free to reach out directly.</p>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="container" style="text-align: center; margin-top: 3rem; color: var(--muted-color); font-size: 0.9rem;">
-        <p>&copy; 2026 DTS Digital Security. Built securely with GitHub Pages.</p>
-    </footer>
+    </div>
 
 </body>
 </html>
