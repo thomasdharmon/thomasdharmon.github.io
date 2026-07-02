@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Protection & Security Services</title>
+    <title>Active Defense Data Security & IT Consulting</title>
     <style>
         :root {
-            --bg-main: #0a0f1d;
-            --bg-card: #111827;
-            --bg-card-hover: #1f2937;
-            --text-main: #f9fafb;
-            --text-muted: #9ca3af;
-            --accent: #3b82f6;
-            --accent-glow: rgba(59, 130, 246, 0.15);
-            --accent-green: #10b981;
-            --border: #374151;
-            --font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            /* "Active Defense" Color Scheme */
+            --bg-main: #34495E;     /* Dark Slate */
+            --bg-card: #2C3E50;     /* Deeper Slate for cards */
+            --text-main: #F4F6F6;   /* White */
+            --text-muted: #AAB7B8;  /* Silver */
+            --accent: #C0392B;      /* Vibrant Red */
+            --accent-hover: #E74C3C;/* Lighter Red for hover states */
+            --border: #455668;      /* Soft border blending with Slate */
+            --font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
         }
 
         * {
@@ -47,15 +46,13 @@
             font-weight: 800;
             letter-spacing: -0.025em;
             margin-bottom: 1rem;
-            background: linear-gradient(to right, #ffffff, #9ca3af);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-main);
         }
 
         header p {
             font-size: 1.2rem;
             color: var(--text-muted);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
@@ -72,23 +69,24 @@
             gap: 0.75rem;
             border-bottom: 1px solid var(--border);
             padding-bottom: 0.75rem;
+            color: var(--text-main);
         }
 
         .section-title span {
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            background-color: var(--accent-glow);
+            background-color: rgba(192, 57, 43, 0.15); /* Transparent Red */
             color: var(--accent);
             padding: 0.25rem 0.75rem;
             border-radius: 9999px;
-            border: 1px solid rgba(59, 130, 246, 0.3);
+            border: 1px solid rgba(192, 57, 43, 0.4);
         }
 
         .section-title.modular span {
-            background-color: rgba(16, 185, 129, 0.1);
-            color: var(--accent-green);
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            background-color: rgba(170, 183, 184, 0.1); /* Transparent Silver */
+            color: var(--text-main);
+            border: 1px solid rgba(170, 183, 184, 0.4);
         }
 
         /* Grid Layouts */
@@ -108,31 +106,30 @@
         .card {
             background-color: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 2.5rem;
             transition: all 0.3s ease;
-            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .card:hover {
-            background-color: var(--bg-card-hover);
-            transform: translateY(-4px);
+            transform: translateY(-5px);
             border-color: var(--accent);
-            box-shadow: 0 12px 24px -10px var(--accent-glow);
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.3);
         }
 
         .modular .card:hover {
-            border-color: var(--accent-green);
-            box-shadow: 0 12px 24px -10px rgba(16, 185, 129, 0.1);
+            border-color: var(--text-muted);
         }
 
         .card h3 {
             font-size: 1.35rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
+            color: var(--text-main);
         }
 
         .tagline {
@@ -143,47 +140,54 @@
         }
 
         .modular .tagline {
-            color: var(--accent-green);
+            color: var(--text-muted);
         }
 
         .description {
             color: var(--text-muted);
             font-size: 0.975rem;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .cta-btn {
             display: inline-block;
             text-align: center;
             text-decoration: none;
-            background-color: transparent;
+            background-color: var(--accent);
             color: var(--text-main);
-            border: 1px solid var(--border);
+            border: 1px solid var(--accent);
             padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
             font-weight: 600;
             transition: all 0.2s ease;
             cursor: pointer;
             width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .card:hover .cta-btn {
-            background-color: var(--accent);
-            border-color: var(--accent);
-            color: #ffffff;
+        .cta-btn:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
         }
 
-        .modular .card:hover .cta-btn {
-            background-color: var(--accent-green);
-            border-color: var(--accent-green);
-            color: #ffffff;
+        .modular .cta-btn {
+            background-color: transparent;
+            border-color: var(--text-muted);
+            color: var(--text-main);
+        }
+
+        .modular .cta-btn:hover {
+            background-color: var(--text-muted);
+            color: var(--bg-card);
+            border-color: var(--text-muted);
         }
 
         /* Responsive Tweaks */
         @media (max-width: 768px) {
             body { padding: 2rem 1rem; }
-            header h1 { font-size: 2rem; }
+            header h1 { font-size: 2.2rem; }
             .flagship-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -192,31 +196,31 @@
 
     <div class="container">
         <header>
-            <h1>Data Protection & Security Services</h1>
-            <p>Enterprise-grade security and proactive resilience frameworks tailored perfectly for modern small businesses and professionals.</p>
+            <h1>Active Defense Consulting</h1>
+            <p>100% remote, software-driven security frameworks and identity protection for modern businesses.</p>
         </header>
 
         <!-- Flagship Frameworks -->
         <section class="flagship">
-            <h2 class="section-title">Core Flagship Frameworks <span>Fully Managed Tiers</span></h2>
+            <h2 class="section-title">Premium Flagship Frameworks <span>Monthly Retainer</span></h2>
             <div class="flagship-grid">
                 
                 <div class="card">
                     <div>
-                        <h3>Ransomware Resilience & Bulletproof Backup Management</h3>
-                        <p class="tagline">Never pay a ransom. Never lose a file.</p>
-                        <p class="description">We protect your business records using a strict, automated 3-2-1 backup strategy. By deploying intelligent backup engines to your workstations and servers, we route your data to a secure, off-site cloud vault. Because we enforce strict data immutability, your backups are locked against modification. Even if ransomware gets your administrative passwords, it is physically impossible for malware to delete or alter your backup copies, guaranteeing a swift, clean recovery.</p>
+                        <h3>Secure Cloud Infrastructure & Identity Governance</h3>
+                        <p class="tagline">Lock down your business domain and secure your team's digital assets.</p>
+                        <p class="description">Your corporate email and cloud drives are the most targeted entry points for hackers. We serve as your cloud gatekeeper—configuring global security baselines across Microsoft 365 or Google Workspace, enforcing strict app-based Multi-Factor Authentication (MFA), and blocking high-risk overseas login attempts. This tier includes automated cloud-to-cloud backups routed to an isolated, immutable vault, ensuring your complete communication history is permanently protected and instantly recoverable.</p>
                     </div>
-                    <a href="#contact" class="cta-btn">Book a Consultation</a>
+                    <a href="mailto:contact@yourdomain.com" class="cta-btn">Initiate Setup</a>
                 </div>
 
                 <div class="card">
                     <div>
-                        <h3>Managed Endpoint Detection & Response (EDR)</h3>
-                        <p class="tagline">Proactive, behavioral threat defense watching your network 24/7.</p>
-                        <p class="description">Standard antivirus only acts after a system is already infected. Our managed EDR utilizes behavioral AI to watch your endpoints in real-time. If an employee accidentally opens a malicious link, our system catches the strange behavior mid-execution, halts the attack, and instantly isolates the affected machine from your local office Wi-Fi to stop the threat from spreading. We act as your virtual security squad, keeping your business running smoothly.</p>
+                        <h3>Managed Device Health & Proactive Threat Defense</h3>
+                        <p class="tagline">Automated patch maintenance and enterprise-grade behavioral AI security.</p>
+                        <p class="description">Traditional antivirus can't stop modern, fast-moving exploits. This framework deploys an active behavioral bodyguard to your business workstations and laptops. Our system monitors operating system behavior in real-time, instantly freezing and isolating malicious threats before they can spread to the rest of your office. We handle all critical software and operating system patching completely after hours, keeping your hardware fast, updated, and secure without ever disrupting your workday.</p>
                     </div>
-                    <a href="#contact" class="cta-btn">Book a Consultation</a>
+                    <a href="mailto:contact@yourdomain.com" class="cta-btn">Initiate Setup</a>
                 </div>
 
             </div>
@@ -224,52 +228,34 @@
 
         <!-- Modular Add-Ons -->
         <section class="modular">
-            <h2 class="section-title modular">Targeted Modular Add-Ons <span>Budget-Friendly Microservices</span></h2>
+            <h2 class="section-title modular">Targeted Deployments <span>Standalone Services</span></h2>
             <div class="modular-grid">
 
                 <div class="card">
                     <div>
+                        <h3>Standalone Boundary Vulnerability Audit</h3>
+                        <p class="tagline">Uncover your digital security blind spots before a hacker does.</p>
+                        <p class="description">Every open network port and outdated piece of software is an active invitation for cybercriminals. This flat-rate discovery service utilizes advanced OpenVAS scanning infrastructure to probe your perimeter for hidden exposures. We strip out the confusing technical noise and present you with a clean, actionable Executive Threat Report detailing your immediate risks and exactly how to fix them.</p>
+                    </div>
+                    <a href="mailto:contact@yourdomain.com" class="cta-btn">Request Audit</a>
+                </div>
+
+                <div class="card">
+                    <div>
                         <h3>Cloud-Only Mail & Drive Backup</h3>
-                        <p class="tagline">Protect your inbox and shared files from accidental deletion.</p>
-                        <p class="description">Think Microsoft 365 or Google Workspace automatically backs up your data forever? Think again. Standard cloud accounts permanently purge deleted emails and folders after 30 days. This lightweight, budget-friendly service running in the background takes continuous, secure snapshots of your entire corporate cloud workspace, ensuring your communication history is completely safe.</p>
+                        <p class="tagline">Isolated, tamper-proof backup protection for your primary cloud data.</p>
+                        <p class="description">Standard cloud productivity providers do not permanently back up your data if an account is compromised or an inbox is intentionally wiped. This lightweight, cost-effective service runs automatically in the background, creating secure, daily snapshots of your corporate cloud storage, email records, and shared folders to guarantee absolute data preservation.</p>
                     </div>
-                    <a href="#contact" class="cta-btn">Get Started</a>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <h3>Automated Device Patching & Update Maintenance</h3>
-                        <p class="tagline">Close the security gaps that hackers exploit most.</p>
-                        <p class="description">Over 80% of successful cyberattacks target unpatched software like outdated browsers, Zoom clients, and Windows files. We take the hassle of manual updates completely off your hands. Using our remote management tools, we quietly schedule, test, and push critical security patches to your team's laptops after hours, ensuring your business stays defended against modern security flaws without disrupting your workday.</p>
-                    </div>
-                    <a href="#contact" class="cta-btn">Get Started</a>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <h3>Secure Wi-Fi & Guest Network Isolation</h3>
-                        <p class="tagline">Keep your customers connected and your business data invisible.</p>
-                        <p class="description">Sharing your main office Wi-Fi password with visitors or plugging smart TVs into the same network as your accounting system leaves your business wide open. This fast, one-time setup project structurally separates your internet into dedicated, secure lanes. Visitors get blazing-fast guest Wi-Fi, smart gadgets stay online, and your critical business computers stay hidden behind a digital wall.</p>
-                    </div>
-                    <a href="#contact" class="cta-btn">Get Started</a>
+                    <a href="mailto:contact@yourdomain.com" class="cta-btn">Deploy Backup</a>
                 </div>
 
                 <div class="card">
                     <div>
                         <h3>Executive Digital Footprint Audit</h3>
                         <p class="tagline">See what hackers, scammers, and the public can find out about you.</p>
-                        <p class="description">Your home address, cell phone number, family members’ names, and exposed passwords from historical data breaches are likely sitting on public search directories right now. This flat-rate intelligence service uses advanced investigative tools to map your exposed digital footprint. We deliver a comprehensive, confidential risk assessment report along with a step-by-step blueprint to take back your privacy.</p>
+                        <p class="description">Your home address, cell phone number, family members’ names, and exposed passwords from historical data breaches are likely sitting on public search directories right now. This flat-rate intelligence service maps your exposed digital footprint. We deliver a comprehensive, confidential risk assessment report along with a step-by-step blueprint to take back your privacy.</p>
                     </div>
-                    <a href="#contact" class="cta-btn">Get Started</a>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <h3>Proactive Data Migration & Storage Health Check</h3>
-                        <p class="tagline">Move your critical data safely before an old drive fails.</p>
-                        <p class="description">Don't wait for an old laptop or external hard drive to crash before protecting your files. This preventative service runs diagnostic checks to measure the physical health of your storage drive. We then use enterprise-grade hardware to safely migrate your entire user profile, photos, and critical database archives to a secure, modern, encrypted drive with zero risk of file corruption.</p>
-                    </div>
-                    <a href="#contact" class="cta-btn">Get Started</a>
+                    <a href="mailto:contact@yourdomain.com" class="cta-btn">Request Audit</a>
                 </div>
 
             </div>
